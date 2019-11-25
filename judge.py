@@ -46,6 +46,7 @@ if __name__ == '__main__':
     data.read_data()
     # 划分训练集
     data.divide_data()
+    print("start")
     for k in range(5,50):
         print("k = ",k,end="\t")
         test(knn.train, knn.recognize,data=data, k=k)
