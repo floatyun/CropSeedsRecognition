@@ -33,9 +33,9 @@ def test(train,recognize):
         else:
             print("对输入的种子向量"+str(vectors[i])+"错误的识别为类别"
                   +str(test_result)+".而该种子实际上属于类别"+str(answers[i]))
-    print("总正确率：%.1f%%" % (right_count//test_count * 100.0))
+    print("总正确率：%.1f%%" % (right_count/test_count * 100.0))
     for c in data.answer_set:
-        print("类别"+str(c)+("的正确率为%.1f%%" % (class_right_count[c]//class_test_count[c] * 100.0)))
+        print("类别"+str(c)+("的正确率为%.1f%%" % (class_right_count[c]/class_test_count[c] * 100.0)))
 
 
 if __name__ == '__main__':
