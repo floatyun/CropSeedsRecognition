@@ -2,7 +2,7 @@ from prepare_data import Data
 import knn
 
 
-def test(train,recognize):
+def test(train,recognize,k):
     """
     测试并计算正确率
     :param train: 训练函数（参见knn的训练函数的样子）
@@ -24,19 +24,20 @@ def test(train,recognize):
         class_right_count[c] = 0
         class_test_count[c] = 0
     for i in range(test_count):
-        test_result = recognize(vectors[i])
+        test_result = recognize(vectors[i],k)
         class_test_count[answers[i]] += 1
         if test_result == answers[i]:
             right_count += 1
             class_right_count[test_result] += 1
-            print("对输入的种子向量" + str(vectors[i]) + "正确识别为类别"+ str(test_result))
+            # print("对输入的种子向量" + str(vectors[i]) + "正确识别为类别"+ str(test_result))
         else:
-            print("对输入的种子向量"+str(vectors[i])+"错误的识别为类别"
-                  +str(test_result)+".而该种子实际上属于类别"+str(answers[i]))
+            pass
+            # print("对输入的种子向量"+str(vectors[i])+"错误的识别为类别"
+            #       +str(test_result)+".而该种子实际上属于类别"+str(answers[i]))
     print("总正确率：%.1f%%" % (right_count/test_count * 100.0))
-    for c in data.answer_set:
-        print("类别"+str(c)+("的正确率为%.1f%%" % (class_right_count[c]/class_test_count[c] * 100.0)))
+    # for c in data.answer_set:
+    #     print("类别"+str(c)+("的正确率为%.1f%%" % (class_right_count[c]/class_test_count[c] * 100.0)))
 
 
 if __name__ == '__main__':
-    test(knn.train, knn.recognize)
+        test(knn.train, knn.recognize,21)
