@@ -80,10 +80,10 @@ def hierarchical_cluster(seeds:list, threshold=7.72):
     for i in range(n):
         for j in range(i):
             dis[i, j] = dis[j, i] = np.linalg.norm(vectors[i] - vectors[j])
-    # print("mean = ", dis.mean())
-    # print("min = ", dis.min())
-    # print("max = ", dis.max())
-    # print("sum = ", dis.sum())
+    print("mean = ", dis.mean())
+    print("min = ", dis.min())
+    print("max = ", dis.max())
+    print("threshold = ", threshold)
     # 重复以下迭代过程直到最大距离已经达到了阈值
     # 1. 从距离矩阵中找类间距离最大的两个类
     # 2. 将这两个类合并
