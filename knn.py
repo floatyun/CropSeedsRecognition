@@ -22,6 +22,9 @@ def e_distance(x,y):
 
 trainingset=[]
 
+def clear():
+    trainingset.clear()
+
 
 def recognize(vector,k=15):
     """
