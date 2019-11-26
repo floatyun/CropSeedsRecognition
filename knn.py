@@ -23,7 +23,7 @@ def e_distance(x,y):
 trainingset=[]
 
 
-def recognize(vector,k=20):
+def recognize(vector,k=15):
     """
     识别种子类别
     :param vector: 要识别的种子的向量
