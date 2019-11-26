@@ -33,7 +33,7 @@ def recognize(vector,k=20):
     
     testset=[]
     for i in range(len(trainingset)):
-        distance=e_distance(a,trainingset[i].vector)
+        distance=e_distance(vector,trainingset[i].vector)
         testset.append(RE(distance,trainingset[i].answer))
     testset.sort()
     #print(testset)
@@ -56,7 +56,7 @@ def train(vectors, answers):
     """
     num=[0 for i in range(3)]
     for i in range(len(vectors)):
-        if(num[answers[i]]<50):
+        if(num[answers[i]-1]<50):
             num[answers[i]-1]+=1
             trainingset.append(TR(vectors[i],answers[i]))
 
