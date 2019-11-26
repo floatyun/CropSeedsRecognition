@@ -1,30 +1,36 @@
 # 作物种子模式识别
 
 #### 介绍
-模式识别大作业
+这是我们小组合作完成的模式识别大作业项目——作物种子模式识别。
+项目存放在码云上（暂时为私有）。
 
 #### 软件架构
-软件架构说明
+采用Python实现。
 
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
 #### 使用说明
+KNN分类算法	 
+```
+python judge.py
+```
+贝叶斯分类算法	 
+```
+python judge_bayes.py
+```
+层次聚类算法  
+```
+python hierarchical_clustering.py
+```
+K-Means聚类算法	 
+```
+python k_means.py
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
 #### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+* 161710237
+* 161710235
+* 161710234
 
 
 #### 码云特技
