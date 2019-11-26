@@ -6,7 +6,6 @@ class Bayes:
     def __init__(self,vectors,answers):
         self.vectors=vectors
         self.answers=answers
-        # self.inputVector=inputVector
         # model_par以字典形式存放每一个类别的方差
         self.model_para={}
  
@@ -33,8 +32,6 @@ class Bayes:
     def summarize(self,vectors):
         # zip利用 * 号操作符，可以将不同元组或者列表压缩为为列表集合。用来提取每类样本下的每一维的特征集合
         summaries = [(self.mean(attribute), self.stdev(attribute)) for attribute in zip(*vectors)]
-        # 将代表类别的最后一个数据删掉，只保留均值和方差
-        #del summaries[-1]
         return summaries
  
  
@@ -44,7 +41,6 @@ class Bayes:
         separated_class = {}
         for i in range(len(self.vectors)):
             vector = self.vectors[i]
-            # vector[-1]为每组数据的类别
             if ((self.answers[i]-1) not in separated_class):
                 separated_class[self.answers[i]-1] = []
             #     将每列数据存放在对应的类别下，列表形式
@@ -77,33 +73,7 @@ class Bayes:
         prediction=max(probabilities,key=probabilities.get)
         return prediction+1
  
-# # 准备数据
-# def loadCsv(filename):
-#     lines = csv.reader(open(filename, "r"))
-#     dataset = list(lines)
-#     for i in range(len(dataset)):
-#         dataset[i] = [float(x) for x in dataset[i]]
-#     return dataset
- 
-# # 将原始数据集划分为训练集和测试集，splitRatio为划分比例。
-# def splitDataset(dataset, splitRatio):
-#     trainSize = int(len(dataset) * splitRatio)
-#     trainSet = []
-#     copy = list(dataset)
-#     while len(trainSet) < trainSize:
-#         index = random.randrange(len(copy))
-#         # 原始数据集剔除训练集之后剩下的就是测试集
-#         trainSet.append(copy.pop(index))
-#     return [trainSet, copy]
- 
-# # 计算分类准确率
-# def calAccuracy(testData,bayes):
-#     correct_nums=0
-#     for i in range(len(testData)):
-#         # 逐次计算每一个数据的分类类别
-#         if  testData[i][-1]== bayes.calClassProbabilities(testData[i]):
-#             correct_nums += 1
-#     return correct_nums
+
 
 bayes=Bayes([],[])
 
@@ -127,21 +97,4 @@ def recognize(vector):
     
     return bayes.calClassProbabilities(vector)
 
-
-def main():
-    filename = ''
- 
-    # 训练集和测试集的划分比例
-    
- 
-    bayes=Bayes(trainData)
-    # model为训练之后的bayes分类器模型的概率参数
-    model=bayes.tarin_bayesModel()
-    # print(model)
-    correct_nums=calAccuracy(testData, bayes)
-    print("分类准确率 %f%%"%(correct_nums/len(testData) * 100.0))
- 
- 
-if __name__=="__main__":
-    main()
 
