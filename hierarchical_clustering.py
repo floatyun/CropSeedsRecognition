@@ -1,6 +1,6 @@
 from prepare_data import Data
 import numpy as np
-import os
+from mtr_to_img import *
 
 
 def get_element(dis, results, n):
@@ -68,7 +68,7 @@ def hierarchical_cluster(seeds:list, threshold=7.72):
     :param threhold: 停止的聚类的距离阈值
     :return: results, classes
     一个列表group。group和vectors等长。group[i]表示vectors[i]的分类编号
-    classes是一个列表，classes[i]是编号为i的成员的列表
+    classes是一个列表，classes[i]是编号为ip的成员的列表
     """
     vectors = []
     for seed in seeds:
@@ -134,6 +134,8 @@ def judge(real_classes, classes):
     mtr = mtr/a
     print("下面展示的是上面的矩阵转换为占比的情况")
     print(mtr)
+    filename = input("请输入你要保存的矩阵图的文件名：\n")
+    mtr_to_img(mtr, filename)
 
 
 def main():
