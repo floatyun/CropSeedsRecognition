@@ -69,7 +69,7 @@ if __name__ == '__main__':
     test_count = int(input("测试bayes0算法，请输入测试次数：\n"))
     for i in range(test_count):
         data.divide_data()
-        rate,r,p = test(bayes0.train, bayes0.recognize,data=data,dispaly_process=True)
+        rate,r,p = test(bayes0.train, bayes0.recognize,data=data,dispaly_process=False)
         sum += rate
         predict += p
         answers += r
@@ -77,4 +77,7 @@ if __name__ == '__main__':
     print("一共重复测试了"+str(test_count)+"次")
     print("每次测试了"+str(len(answers)//test_count)+"个种子。")
     print("平均正确率：%.1f%%" % (sum * 100.0))
+    filename = "bayes_heat_img.jpg"
+    get_head_img(answers, predict, [1, 2, 3], filename=filename)
+    show_heat_img(filename)
 
